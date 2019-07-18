@@ -51,8 +51,11 @@ class Database
     INSERT INTO #{table_name}(#{column_names})
     VALUES(#{values})
     END_SQL
-
-    @client.query statement
+    begin
+      @client.query statement
+    rescue StandardError => e
+      raise e
+    end
   end
 
   # @param [Hash] params
