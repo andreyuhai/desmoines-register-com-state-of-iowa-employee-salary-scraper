@@ -64,10 +64,10 @@ class DRStateOfIowaSalaryScraper
         }
         begin
           @db.insert_into_table(params)
-          puts "\t\t[#{index.to_s.ljust(2)}\t#{employee_name.ljust(20)}\t#{department.ljust(20)}\t#{july_salary.to_s.ljust(10)}\t#{travel.to_s.ljust(5)}\t#{fy_salary.to_s.ljust(10)}\t#{fy.to_s.ljust(10)}"
+          puts "\t[#{index.to_s.ljust(2)}]\t#{employee_name.ljust(30)}\t#{department.ljust(25)}\t#{july_salary.to_s.ljust(10)}\t#{travel.to_s.ljust(5)}\t#{fy_salary.to_s.ljust(10)}\t#{fy.to_s.ljust(10)}"
         rescue Mysql2::Error => e
           if e.error_number.eql? 1062
-            puts "\t\t[#{index.to_s.ljust(2)}\t#{employee_name.ljust(20)}\t#{department.ljust(20)}\t#{july_salary.to_s.ljust(10)}\t#{travel.to_s.ljust(5)}\t#{fy_salary.to_s.ljust(10)}\t#{fy.to_s.ljust(10)}\tDUPLICATE"
+            puts "\t[#{index.to_s.ljust(2)}]\t#{employee_name.ljust(30)}\t#{department.ljust(25)}\t#{july_salary.to_s.ljust(10)}\t#{travel.to_s.ljust(5)}\t#{fy_salary.to_s.ljust(10)}\t#{fy.to_s.ljust(10)}\tDUPLICATE"
           end
         end
       end
