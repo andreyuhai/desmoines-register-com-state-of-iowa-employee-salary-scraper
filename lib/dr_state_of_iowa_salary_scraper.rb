@@ -26,7 +26,8 @@ class DRStateOfIowaSalaryScraper
 
       begin
         response = @agent.get url
-      rescue Net::ReadTimeout, Mechanize::ResponseCodeError
+      rescue StandardError
+        sleep(rand(30..60))
         retry
       end
       parsed_response_body = Nokogiri::HTML(response.body)
